@@ -252,32 +252,89 @@ header .navbar {
 }
 
 /*menu */
-
-.menu-section{
+.menu-section {
     color: var(--white-color);
     background: var(--dark-color);
+    padding: 50px 10px 100px;
 }
 
-.menu-section .menu-list{
+.menu-section .menu-list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 110px;
+    flex-wrap: nowrap; /* Забороняє переноси елементів */
+    gap: 10px; /* Встановлює відстань між елементами */
     align-items: center;
     justify-content: space-between;
+    overflow: hidden; 
 }
 
 .menu-section .menu-list .menu-item {
     display: flex;
     align-items: center;
     text-align: center;
-    flex-direction: column;
+    flex-direction: column; /* Якщо потрібно, щоб зображення і текст були вертикально всередині .menu-item */
     justify-content: space-between;
-    width: cal(100% / 3 - 110px);
+    width: calc(100% / 3); /* Задає рівну ширину для кожного елемента */
+    flex-shrink: 0; /* Забороняє автоматичне зменшення ширини елементів */
 }
 
-.menu-section .menu-list .menu-item .menu-image{
-    max-width: 83%;
+.menu-section .menu-list .menu-item .menu-image {
+    max-width: 80%;
     aspect-ratio: 1;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
+.menu-section .menu-list .menu-item .text{
+    font-size: var(--font-size-m);
+}
+
+.menu-section .menu-list .menu-item .name{
+    margin: 12px 0;
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-semibold);
+}
+
+.testimonials-section{
+    padding: 50px 0 100px;
+    background: var(--light-pink-color);
+}
+
+.testimonials-section .testimonials{
+    display: flex;
+    padding: 35px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonials-section .testimonials .user-image{
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 50px;
+    border-radius: var(--border-radius-circle);
+}
+
+.testimonials-section .testimonials .name{
+    margin-bottom: 16px;
+    font-size: var(--font-size-m);
+}
+
+.testimonials-section .testimonials .feegback{
+    line-height: 25px;
+}
+
+
+
+
+@media screen and (max-width: 1024px) {
+    .menu-section .menu-list {
+        gap: 60px;
+    }
+    .menu-section .menu-list .menu-item {
+        width: calc(100% / 4 );
+    }
+
 }
 
 @media screen and (max-width: 900px) {
@@ -379,6 +436,18 @@ header .navbar {
         max-width: 250px;
         aspect-ratio: 1;
     }
+
+    .menu-section .menu-list {
+        gap: 30px;
+    }
+    .menu-section .menu-list .menu-item {
+        width: calc(100% / 4);
+    }
+    .menu-section .menu-list .menu-item .menu-image{
+        max-width: 200px;
+    }
     
 }
+
+
 
